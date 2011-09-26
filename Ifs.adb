@@ -40,9 +40,9 @@ package Body Ifs is
    begin
       Open(Data_File, In_File, Filename);
 
-            for Index in Probability_List'First .. Probability_List'Last loop
-               Get(Data_File, Probability_List(Index));
-            end loop;
+      for Index in Probability_List'First .. Probability_List'Last loop
+           Get(Data_File, Probability_List(Index));
+      end loop;
 
       for Row in Coefficient_List'First(1) .. Coefficient_List'Last(1) loop
             for Index in Coefficient_List'First(2) .. Coefficient_List'Last(2) loop
