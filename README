@@ -1,0 +1,47 @@
+Barnsley Fern is an iterated function system creating various fern fractals by 
+four affine transformations given by:
+
+         |a  b|   |x|   |e|
+f(x,y) = |    | * | | + | |
+         |c  d|   |y|   |f|
+
+A data file contain the coefficients for the four affine transformations including
+probability factors for each transformation.
+The data file start with  line definingcthe probability factors followed 
+by 4 lines of coefficients defining each transformation.
+
+Data file example:
+
+0.0 0.55 0.92 0.99 1.0
+0.85 0.04 -0.04 0.85 0.0 1.6
+0.2 -0.26 0.23 0.22 0.0 1.6
+-0.15 0.28 0.26 0.24 0.0 0.44
+0.0 0.0 0.0 0.16 0.0  0.0
+
+Where the first line is the probability factors:
+0.0 0.55 0.92 0.99 1.0
+
+for fi between p(i) - p(i+1)
+
+And the following lines are the four affine transformations given by:
+
+         a       b      c      d     e    f
+     -------------------------------------  
+f1     0.85    0.04  -0.04   0.85  0.0   1.6
+f2      0.2   -0.26   0.23   0.22  0.0   1.6
+f3    -0.15    0.28   0.26   0.24  0.0  0.44
+f4      0.0     0.0    0.0   0.16  0.0   0.0
+
+
+Changing the probability factors and/or the affine transformations coefficients give 
+different types of ferns. See the examples in the data directory.
+
+
+Usage of the program: The program write the result to standard output which can be directed 
+to a file and e.g been shown by gnuplot like:
+
+  $ ./barnsley_fern ./data/fern.dat > foo.dat
+  $ gnuplot
+  > set view map
+  > plot 'foo.dat' with points lt 2
+
